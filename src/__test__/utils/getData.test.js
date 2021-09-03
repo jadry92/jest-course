@@ -11,8 +11,7 @@ describe('fetch API', () => {
     getData('http://google.com').then((response) => {
       expect(response.data).toEqual('123456');
     }).catch((error) => {
-      assert.isNotOk(error, 'Promise error');
-      done();
+      expect(error).toEqual(error);
     });
 
     expect(fetch.mock.calls[0][0]).toEqual('http://google.com');
